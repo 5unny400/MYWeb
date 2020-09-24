@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理信息</title>
+    <style>
+        #one {
+            color: #1f160e;
+            padding-inline-start: 5px;
+        }
+        
+        .two {
+            background-color: rgb(59, 59, 190);
+        }
+        
+        .wrap {
+            border-radius: 10px;
+            height: 50px;
+            padding-top: 10px;
+            font-family: 宋体;
+            font-size: 25px;
+            color: white;
+            background-color: rgb(7, 175, 7);
+        }
+        
+        .nav_1 {
+            float: left;
+            margin-left: 10px;
+            width: 120px;
+        }
+        
+        .nav_2 {
+            float: left;
+            margin-left: 100px;
+            height: 20px;
+        }
+        
+        #nav_3 {
+            float: left;
+            margin-left: 900px;
+            height: 25px;
+            margin-top: auto;
+        }
+        
+        .body {
+            border-radius: 10px;
+            height: 250px;
+            margin-top: 20px;
+            background-color: rgb(214, 151, 91);
+        }
+        
+        .fooster {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            color: aliceblue;
+            margin-top: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: rgb(66, 66, 61);
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function checkPasswd() {
+            var txt;
+            if (confirm("确认修改密码？")) {
+                alert("重置密码成功！");
+            } else {
+                alert("已取消修改！");
+            }
+            //document.getElementById("demo").innerHTML = txt;
+        }
+
+        function checkInfo() {
+            var txt;
+            if (confirm("确认修改？")) {
+                alert("修改成功！");
+            } else {
+                alert("已取消！");
+            }
+            //document.getElementById("demo").innerHTML = txt;
+        }
+
+        function checkDel() {
+            var txt;
+            if (confirm("确认删除？")) {
+                alert("删除成功！");
+            } else {
+                alert("删除取消！");
+            }
+            //document.getElementById("demo").innerHTML = txt;
+        }
+
+        function getTime() {
+            setInterval("document.getElementById('datetime').innerHTML=new Date().toLocaleString();", 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="nav_1">用户管理</div>
+        <script>
+            Date.prototype.format = function(fmt) {
+                var o = {
+                    "y+": this.getFullYear, //年
+                    "M+": this.getMonth() + 1, //月份
+                    "d+": this.getDate(), //日
+                    "h+": this.getHours(), //小时
+                    "m+": this.getMinutes(), //分
+                    "s+": this.getSeconds() //秒
+                };
+                if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+                for (var k in o)
+                    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                return fmt;
+            }
+            setInterval("document.getElementById('nav_3').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
+        </script>
+        <div class="nav_2">
+            <button type="button" onclick="window.location.href='SignIn.html'"> 返回</button>
+        </div>
+        <div id="nav_3"></div>
+    </div>
+    <div class="body">
+        <h1 id="one">管理</h1>
+        <form action="" method="POST">
+            <input name="UserName" ,type="text" size="20">
+            <input name="Search" , type="button" value="查找">
+            <input name="Reset" , type="reset" value="重新填写">
+            <input name="Correct" , type="button" onclick="checkInfo()" value="修改">
+            <input name="Delete" , type="button" onclick="checkDel()" value="删除">
+            <table width="900" border="2" align="center">
+                <tr>
+                    <td class="two" align="center">用户名&nbsp</td>
+                    <td class="two" align="center">姓名&nbsp</td>
+                    <td class="two" align="center">用户类型&nbsp</td>
+                    <td class="two" align="center">手机号&nbsp</td>
+                    <td class="two" align="center">邮箱&nbsp</td>
+                    <td class="two" align="center">所在单位&nbsp</td>
+                    <td class="two" align="center">操作&nbsp</td>
+                </tr>
+                <tr>
+                    <td align="center">张三</td>
+                    <td align="center">张三</td>
+                    <td align="center">学生</td>
+                    <td align="center">17561234560</td>
+                    <td align="center">576243756@xaut.edu.cn</td>
+                    <td align="center">水利学院</td>
+                    <td align="center">
+                        <botton style="color: rgb(68, 31, 231);font-family:'Times New Roman', Times, serif;" type="button" onclick="checkPasswd()">修改密码</botton>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">李四</td>
+                    <td align="center">李四</td>
+                    <td align="center">学生</td>
+                    <td align="center">17561234560</td>
+                    <td align="center">576243756@xaut.edu.cn</td>
+                    <td align="center">计算机学院</td>
+                    <td align="center">
+                        <botton style="color: rgb(68, 31, 231);font-family:'Times New Roman', Times, serif;" type="button" onclick="checkPasswd()">修改密码</botton>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">王五</td>
+                    <td align="center">王五</td>
+                    <td align="center">老师</td>
+                    <td align="center">17561234560</td>
+                    <td align="center">576243756@xaut.edu.cn</td>
+                    <td align="center">机械学院</td>
+                    <td align="center">
+                        <botton style="color: rgb(68, 31, 231);font-family:'Times New Roman', Times, serif;" type="button" onclick="checkPasswd()">修改密码</botton>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="fooster">
+        <p>Shenxinyuan@xaut.edu.cn</p>
+        <p>Copyright©2020 沈新源</p>
+        <p>信息部备案号：******</p>
+        <p>******版权所有</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沈新源</title>
+    <style>
+        .wrap {
+            margin: 0px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url(images/bk_image.jpg);
+            height: 600px;
+            background-position: center;
+        }
+    </style>
+    <script language="javascript">
+        function sign() {
+            if (myform.userName.value == "") {
+                alert("请输入用户名！");
+                myform.userName.focus();
+                return false;
+            } else if (myform.passwd.value == "") {
+                alert("请输入密码！");
+                myform.passwd.focus();
+                return false;;
+            } else if (myform.userName.value == "3180911020" && myform.passwd.value == "666888") {
+                if (myform.vertification.value != "2xsd") {
+                    alert("验证码错误!");
+                    return false;
+                } else {
+                    alert("登陆成功！");
+                    return true;
+                }
+            } else {
+                alert("用户名或密码错误");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <center>
+            <h1>用户管理</h1>
+        </center>
+        <form action="Manage.html" method="POST" name="myform" onsubmit="return sign();">
+            <table width="420" border="0" align="center">
+                <tr>
+                    <td align="center" valign="center">用&nbsp户&nbsp名：</td>
+                    <td><input name="userName" id="userName" type="text"></td>
+                </tr>
+                <tr>
+                    <td align="center">密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码：</td>
+                    <td><input name="passwd" type="password"></td>
+                </tr>
+                <tr>
+                    <td align="center">验&nbsp&nbsp证&nbsp码：</td>
+                    <td><input name="vertification" type="text"></td>
+                    <td><img src="images/code.jpg" width="70" height="20"></td>
+                </tr>
+                <tr>
+                    <td align="center">用户类型：</td>
+                    <td align="center">
+                        学生<input name="UserType" type="radio" class="noborder" value="学生" checked> &nbsp&nbsp教师
+                        <input name="UserType" type="radio" class="noborder" value="教师"> &nbsp&nbsp管理员
+                        <input name="UserType" type="radio" class="noborder" value="管理员">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input name="Button" type="submit" value="登录">
+                        <!--
+                            <input name="Submit" type="submit" value="登录">
+                        onclick="window.location.href='Manage.html'
+                    -->
+                    </td>
+                    <td align="center"><input name="Reset" type="reset" value="重填"></td>
+                </tr>
+            </table>
+
+            <center>
+                <p>
+                    还没有账号？<a href="register.html">立即注册</a>
+                </p>
+                <p>
+                    忘记密码？<a href="refindPassward.html">立即找回</a>
+                </p>
+            </center>
+        </form>
+    </div>
+</body>
+
+</html>
